@@ -1,0 +1,114 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 33% 14%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 33% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 33% 14%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 259 85% 75%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 22%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 196 100% 45%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 22%;
+    --ring: 224 76% 48%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-os text-foreground font-mono;
+  }
+
+  /* Custom Glassmorphism */
+  .glass {
+    @apply bg-card/40 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
+  /* Neumorphic Elements */
+  .neumorphic {
+    @apply bg-card shadow-neumorphic rounded-xl;
+  }
+  
+  .neumorphic-inset {
+    @apply bg-card shadow-neumorphic-inset rounded-xl;
+  }
+}
+
+@layer components {
+  .os-panel {
+    @apply glass rounded-2xl p-4 animate-fade-in;
+  }
+  
+  .process-item {
+    @apply glass rounded-xl p-3 mb-3 transition-all duration-300 border-l-4;
+  }
+
+  .track-progress {
+    @apply h-1 bg-primary/30 rounded-full overflow-hidden;
+  }
+  
+  .track-progress-inner {
+    @apply h-full bg-primary rounded-full;
+  }
+  
+  /* Process State Colors */
+  .state-ready {
+    @apply border-l-os-state-ready;
+  }
+  
+  .state-running {
+    @apply border-l-os-state-running;
+  }
+  
+  .state-waiting {
+    @apply border-l-os-state-waiting;
+  }
+  
+  .state-idle {
+    @apply border-l-os-state-idle;
+  }
+  
+  /* Thread styling */
+  .thread {
+    @apply h-2 rounded-full my-1;
+  }
+  
+  .thread-decode {
+    @apply bg-os-blue;
+  }
+  
+  .thread-buffer {
+    @apply bg-os-purple;
+  }
+  
+  .thread-play {
+    @apply bg-green-400;
+  }
+}
